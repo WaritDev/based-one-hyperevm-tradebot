@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  hl-tradebot:
+    build: .
+    container_name: based-tradebot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["python", "based-tradebot-v2.py"]
