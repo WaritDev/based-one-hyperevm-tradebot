@@ -1,3 +1,5 @@
-requests>=2.31.0
-python-dotenv>=1.0.1
-pybotters>=0.13.0
+fastapi>=0.110
+uvicorn>=0.30
+python-dotenv>=1.0
+requests>=2.32
+pybotters>=1.5

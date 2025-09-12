@@ -1,8 +1,8 @@
 FROM python:3.11-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc libssl-dev libffi-dev make \
-    && rm -rf /var/lib/apt/lists/*
+    ca-certificates curl && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
@@ -11,4 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python", "based-tradebot-v2.py"]
+ENV PYTHONUNBUFFERED=1
+
+CMD ["python", "server.py"]
