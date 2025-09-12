@@ -1,4 +1,4 @@
-Based Tradebot (HyperEVM)
+# Based Tradebot (HyperEVM)
 
 Python bot for trading on Based One HyperEVM.
 Supports automatic Take Profit / Stop Loss, partial TP, trailing stop, and risk management.
@@ -6,7 +6,7 @@ Includes real-time monitoring of position status and PnL, with easy deployment v
 
 ⸻
 
-📦 Features
+## 📦 Features
 - Supports both Long / Short (configurable via env)
 - Order entry modes: Maker / Taker / Maker-Chase
 - Save fees by using maker mode
@@ -25,7 +25,7 @@ Includes real-time monitoring of position status and PnL, with easy deployment v
 
 ⸻
 
-⚙️ Requirements
+## ⚙️ Requirements
 - Docker (>= 20.10)
 - Docker Compose (>= 2.0)
 - Your Wallet Web3 Private Key
@@ -76,7 +76,7 @@ CLIENT_ID=0xba5ed11067f2cc08ba5ed1
 
 ⸻
 
-🚀 Run with Docker Compose
+## 🚀 Run with Docker Compose
 ```
 # Build image
 docker compose build
@@ -90,7 +90,7 @@ docker compose logs -f
 
 ⸻
 
-📊 Example Log
+## 📊 Example Log
 ```
 ✅ Bot started | symbol=BTC aid=0 size=0.01 tif=Gtc/Ioc | lev=20x
 Targets: TP≥2% SL≥1% + VOL dyn (RR≥1.2x)
@@ -102,7 +102,7 @@ Targets: TP≥2% SL≥1% + VOL dyn (RR≥1.2x)
 
 ⸻
 
-🛠 Development (Local Run)
+## 🛠 Development (Local Run)
 ```
 # Install dependencies
 pip install -r requirements.txt
