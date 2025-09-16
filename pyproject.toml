@@ -1,12 +1,7 @@
-[tool.poetry]
-name = "hyperliquid-bot"
+[project]
+name = "mm-bot"
 version = "0.1.0"
-description = "ROE-based trading bot for Hyperliquid"
-authors = ["Your Name <you@example.com>"]
-readme = "README.md"
+dependencies = ["python-dotenv","requests","pybotters"]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-requests = "^2.31.0"
-python-dotenv = "^1.0.1"
-pybotters = "^0.13.0"
+[tool.setuptools.packages.find]
+where = ["src"]
