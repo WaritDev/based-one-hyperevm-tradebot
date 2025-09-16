@@ -4,6 +4,7 @@ import signal
 import time
 from fastapi import FastAPI
 import uvicorn
+import random
 
 from mm_bot.main import run_bot
 
@@ -21,22 +22,27 @@ def health():
 def root():
     return {"service": "based-tradebot", "message": "running", "ts": int(time.time())}
 
+
 def _bot_wrapper():
     _bot_started.set()
-    backoff = 5
+    base = 5
+    cap = 60
     while not _shutdown.is_set():
         try:
             run_bot()
         except SystemExit as e:
-            print(f"[bot] SystemExit: {e}. Will restart in {backoff}s", flush=True)
+            backoff = min(cap, base) + random.uniform(0, 1.5)
+            print(f"[bot] SystemExit: {e}. restart in {backoff:.1f}s", flush=True)
             time.sleep(backoff)
         except Exception as e:
-            print(f"[bot] crashed: {e}. Will restart in {backoff}s", flush=True)
+            backoff = min(cap, base) + random.uniform(0, 1.5)
+            print(f"[bot] crashed: {e}. restart in {backoff:.1f}s", flush=True)
             time.sleep(backoff)
         else:
-            print(f"[bot] exited cleanly. Restarting in {backoff}s", flush=True)
+            backoff = min(cap, base) + random.uniform(0, 1.5)
+            print(f"[bot] exited cleanly. restarting in {backoff:.1f}s", flush=True)
             time.sleep(backoff)
-    print("[bot] shutdown flag set, exiting bot loop", flush=True)
+        base = min(cap, base * 2)
 
 def _handle_sigterm(*_args):
     print("[server] SIGTERM received -> shutting down", flush=True)
