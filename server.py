@@ -5,7 +5,7 @@ import time
 from fastapi import FastAPI
 import uvicorn
 
-from based_tradebot_v2 import run_bot
+from mm_bot.main import run_bot
 
 app = FastAPI(title="Based Tradebot", version="1.0.0")
 
