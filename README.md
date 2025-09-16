@@ -69,6 +69,8 @@ ORDER_TTL_SEC=20
 RANGE_PCT=0.03
 
 # Authentication (optional external service)
+# Contract for usage
+# More info: https://x.com/g_firsty
 USER_ADDR=0x66...
 PASSWORD=wa...
 AUTH_API_URL=https://script.google.com/macros/s/.../exec
